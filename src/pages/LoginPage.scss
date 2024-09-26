@@ -5,6 +5,12 @@
   height: 100vh;
   background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
   animation: fadeIn 1s ease-in;
+  width: 100%;
+
+  .LoginShow {
+    display: flex;
+    justify-content: center;
+  }
 
   @keyframes fadeIn {
     from {

@@ -1,7 +1,7 @@
 import React from 'react';
-import './ProductPage.scss';
+import './home.scss';
 
-const ProductPage = () => {
+const home = () => {
 
     const products = [
         {
@@ -84,4 +84,4 @@ const ProductPage = () => {
     );
 };
 
-export default ProductPage;
+export default home;
