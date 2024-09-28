@@ -1,17 +1,28 @@
-import React, { useEffect, useState } from "react";
-import "./home.scss";
+import React, { useContext, useEffect, useState } from "react";
+import "./products.scss";
 import axios from "axios";
-import { Navigate , Link } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+import { UseContext } from "../Context/UseContext";
 
 const home = () => {
   const [Products, SetProducts] = useState([]);
+  const { ShoppingCard, SetShoppingCard } = useContext(UseContext);
+
+  //   const ShoppingCart = () => {
+  useEffect(() => {
+    if (ShoppingCard === true) {
+      console.log("true is 1");
+    } else {
+      console.error("false");
+    }
+  }, [ShoppingCard]);
+
+  //   }
 
   useEffect(() => {
     const Products = async () => {
       try {
-        const res = await axios.get(
-          `https://fakestoreapi.com/products?limit=3`
-        );
+        const res = await axios.get(`https://fakestoreapi.com/products`);
         SetProducts(res.data);
       } catch (err) {
         console.log(err);
@@ -33,13 +44,15 @@ const home = () => {
             <h2>name : {product.name}</h2>
             <p>category : {product.category}</p>
             <p className="price"> price : {product.price}</p>
-            <button className="buy-button">🛒 Buy</button>
+            <button
+              className="buy-button"
+              onClick={() => SetShoppingCard(true)}
+            >
+              🛒 Buy
+            </button>
           </div>
         ))}
       </div>
-        <div className="ShowMorePds">
-          <button onClick={ShowMore}><Link to={"/ProDucts"}>Show More</Link></button>
-        </div>
     </section>
   );
 };

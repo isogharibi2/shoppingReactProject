@@ -42,25 +42,22 @@ const LoginPage = () => {
         onClose: navigate("/home"),
       });
     }
+
+    if (localStorage.getItem("email") !== null) {
+      toast.success("you are logined ✔️", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Bounce,
+        onClose: () => navigate("/profileuser"),
+      });
+    }
   };
-
-  if (localStorage.getItem("email") !== null) {
-    setTimeout(() => {
-      navigate("/profileuser");
-    }, 3000);
-
-    toast.success("you are logined ✔️", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-      transition: Bounce,
-    });
-  }
 
   useEffect(() => {
     toast.info("pleas login in!", {

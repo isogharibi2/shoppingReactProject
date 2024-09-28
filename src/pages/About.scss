@@ -1,0 +1,23 @@
+.about-container {
+  background-color: #f0f8ff;
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 900px;
+  margin: 0 auto;
+
+  h1 {
+    color: #2c3e50;
+    text-align: center;
+  }
+
+  p {
+    color: #34495e;
+    line-height: 1.6;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+}
