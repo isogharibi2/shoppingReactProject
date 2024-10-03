@@ -9,6 +9,7 @@ import ProDucts from "./pages/products.jsx";
 import BlogPage from "./pages/Blog.jsx";
 import About from "./pages/About.jsx";
 import Footer from "./components/Footer.jsx";
+import ShoppingCart from "./pages/ShoppingCard.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ContextProvider from "./Context/UseContext.jsx";
 
@@ -24,6 +25,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="/ProDucts" element={<ProDucts />} />
           <Route path="/Blog" element={<BlogPage />} />
           <Route path="/About" element={<About />} />
+          <Route path="/ShoppingCart" element={<ShoppingCart />}/>
         </Routes>
         <Footer />
       </ContextProvider>

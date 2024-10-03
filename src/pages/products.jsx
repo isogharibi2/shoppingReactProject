@@ -4,18 +4,23 @@ import axios from "axios";
 import { Navigate } from "react-router-dom";
 import { UseContext } from "../Context/UseContext";
 
+
+
 const home = () => {
   const [Products, SetProducts] = useState([]);
   const { ShoppingCard, SetShoppingCard } = useContext(UseContext);
+  const [ProductsFetch, setproductsfetch] = useState()
 
   useEffect(() => {
     if (ShoppingCard === true) {
       console.log("true is 1");
+
+      const ProductInfo = axios.post(`https://66f56f0a9aa4891f2a2533c2.mockapi.io/Products`)
+      setproductsfetch(ProductInfo.data)
     } else {
       console.error("false");
     }
   }, [ShoppingCard]);
-
 
   useEffect(() => {
     const Products = async () => {
@@ -29,9 +34,7 @@ const home = () => {
     Products();
   });
 
-  function ShowMore() {
-    Navigate("/ShowMore");
-  }
+
 
   return (
     <section className="Hero">
