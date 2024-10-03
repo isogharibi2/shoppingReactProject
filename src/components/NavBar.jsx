@@ -1,13 +1,30 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import "./Navbar.scss";
 import { useNavigate, Link } from "react-router-dom";
 
+import { UseContext } from "../Context/UseContext";
+import axios from "axios";
+
 const Navbar = () => {
   const Navigate = useNavigate();
+  const { ShoppingCard, SetShoppingCard } = useContext(UseContext);
 
   function ChangePage() {
     Navigate("/LoginPage");
   }
+
+  useEffect(() => {
+    const iamgeProf = async () => {
+     try {
+      const res = await axios.get(`https://dummyjson.com/users?limit=1`)
+      SetShoppingCard(res.data)
+      console.log(res.data)
+     } catch (err) {
+      console.log(err)
+     }
+    }
+    iamgeProf()
+  },[])
 
   return (
     <nav className="navbar">
@@ -27,13 +44,15 @@ const Navbar = () => {
         </li>
       </ul>
       <div className="NavbarBtn">
-        <button className="Btn" onClick={ChangePage}>
-          Login
-        </button>
-        <button className="Btn">🛒</button>
+        
+        <div>
+          <button className="Btn">🛒</button>
+          <div className="ShoppingCard">❗</div>
+        </div>
       </div>
     </nav>
   );
 };
 
 export default Navbar;
+

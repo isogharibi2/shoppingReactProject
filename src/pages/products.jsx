@@ -8,7 +8,6 @@ const home = () => {
   const [Products, SetProducts] = useState([]);
   const { ShoppingCard, SetShoppingCard } = useContext(UseContext);
 
-  //   const ShoppingCart = () => {
   useEffect(() => {
     if (ShoppingCard === true) {
       console.log("true is 1");
@@ -17,7 +16,6 @@ const home = () => {
     }
   }, [ShoppingCard]);
 
-  //   }
 
   useEffect(() => {
     const Products = async () => {
