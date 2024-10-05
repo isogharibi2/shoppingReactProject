@@ -73,7 +73,7 @@ const Navbar = () => {
             onClick={() => {
               setProject(false)
             }}>🛒</button>
-          <div style={{zIndex : 1}} className="ShoppingCard" data-aos="fade-left">❗</div>
+          <div style={{zIndex : 1}} className="ShoppingCard" data-aos="fade-left"></div>
         </div>: <div className="ShoCardEmoji">
           <button className="Btn" data-aos="fade-left"
             onClick={() => {

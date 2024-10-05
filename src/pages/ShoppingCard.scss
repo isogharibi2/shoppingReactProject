@@ -1,42 +1,71 @@
 .shopping-cart {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 20px;
+  text-align: center;
+  align-items: center;
+}
 
-    padding: 20px;
-    text-align: center;
+.shopping-cart .product-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  padding: 15px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  width: 200px;
+  text-align: center;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
-  
-  .shopping-cart .product-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 10px;
-    padding: 15px;
-    transition: transform 0.2s, box-shadow 0.2s;
-    width: 200px;
-    text-align: center;
-  
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
-  }
-  
-  .shopping-cart .product-name {
-    font-size: 1.5em;
-    margin: 10px 0;
-  }
-  
-  .shopping-cart .product-description {
-    font-size: 1em;
-    color: #666;
-  }
-  
-  .shopping-cart .product-price {
-    font-size: 1.2em;
-    color: #333;
-    font-weight: bold;
-  }
-  
+}
+
+.shopping-cart .product-name {
+  font-size: 1.5em;
+  margin: 10px 0;
+}
+
+.shopping-cart .product-description {
+  font-size: 1em;
+  color: #666;
+}
+
+.shopping-cart .product-price {
+  font-size: 1.2em;
+  color: #333;
+  font-weight: bold;
+}
+
+.NavbarBtn {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.Btns {
+background-color: #ffffff;
+color: #333333;
+border: 2px solid #007bff;
+border-radius: 5px;
+padding: 10px 20px;
+font-size: 16px;
+cursor: pointer;
+transition: background-color 0.3s ease, transform 0.2s ease;
+margin-top: 1rem;
+
+&:hover {
+  background-color: #007bff;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+&:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+}

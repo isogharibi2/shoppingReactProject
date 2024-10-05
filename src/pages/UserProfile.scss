@@ -25,6 +25,7 @@ $profile-border: #e0e0e0;
   transition: transform 0.3s ease;
   width: max-content;
   height: max-content;
+  flex-direction: column;
 
   &:hover {
     transform: scale(1.05);
@@ -57,4 +58,12 @@ $profile-border: #e0e0e0;
       color: #666;
     }
   }
+}
+
+.PurPro {
+  margin-top: 1rem;
+}
+
+.Purname {
+  font-family:  Verdana, Geneva, Tahoma, sans-serif;
 }

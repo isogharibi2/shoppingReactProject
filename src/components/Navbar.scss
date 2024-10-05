@@ -13,14 +13,25 @@
 .ShoCardEmoji {
   display: flex;
   position: relative;
+  height: 45px;
+}
+
+.ShoppingcardProducts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .ShoppingCard {
   position: absolute;
-  left: 0px;
-  background-color: #333;
+  left: 5px;
+  top: 5px;
+  background-color: red;
   border-radius: 100%;
   z-index: -1;
+  padding: 2px;
+  width: 0.5rem;
+  height: 0.5rem;
 }
 
 .Title {
@@ -28,9 +39,9 @@
 }
 
 .NavbarBtn {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .Btn {

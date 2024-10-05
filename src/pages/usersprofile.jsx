@@ -9,6 +9,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 const UserProfile = () => {
   const [userData, setUserData] = useState([]);
+  const [PurchasesProDucts, SetPurchasesProDucts] = useState([]);
+  const [NotBought, SetNotBought] = useState([]);
   const Navigat = useNavigate();
 
   useEffect(() => {
@@ -24,19 +26,52 @@ const UserProfile = () => {
     };
     GetUsers();
 
-    if (localStorage.getItem("email") === null) {
-      toast.error("Please Login in and contine!", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        onClose: () => Navigat("/LoginPage"),
-      });
-    }
+    // if (localStorage.getItem("email") === null) {
+    //   toast.error("Please Login in and contine!", {
+    //     position: "top-right",
+    //     autoClose: 5000,
+    //     hideProgressBar: false,
+    //     closeOnClick: true,
+    //     pauseOnHover: true,
+    //     draggable: true,
+    //     progress: undefined,
+    //     onClose: () => Navigat("/LoginPage"),
+    //   });
+    // }
   }, []);
+
+  useEffect(() => {
+    const NotBought = async () => {
+      try {
+        const Notbought = await axios.get(
+          `https://66f56f0a9aa4891f2a2533c2.mockapi.io/Products?id=12`
+        );
+        SetNotBought(Notbought.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    NotBought();
+  }, []);
+
+  useEffect(() => {
+    const Purchase = async () => {
+      try {
+        const ProductPurchase = await axios.get(
+          `https://66f56f0a9aa4891f2a2533c2.mockapi.io/Products`
+        );
+        SetPurchasesProDucts(ProductPurchase.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    Purchase();
+  });
+
+  function LogOut() {
+    localStorage.removeItem("email");
+    localStorage.removeItem("password");
+  }
 
   return (
     <section className="ProfileCard">
@@ -54,7 +89,39 @@ const UserProfile = () => {
             </div>
           </div>
         ))}
+        {localStorage.getItem("email") !== null ? (
+          <div className="PurPro">
+            {PurchasesProDucts.map((Purchases) => (
+              <div className="Purname" key={Purchases.Purchase}>
+                <span> you are purchase the : {Purchases.name} </span>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="PurPro">please Login First</div>
+        )}
+        {localStorage.getItem("email") !== null ? (
+          <div className="PurPro">
+            {PurchasesProDucts.map((Purchases) => (
+              <div className="Purname" key={Purchases.Purchase}>
+                <span> you are purchase the : {Purchases.name} </span>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div>
+            {NotBought.map((Bought) => (
+              <div key={Bought.Boughts}>
+                <h1> {Bought.title} </h1>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
+      <button className="Btns" onClick={LogOut}>
+        {" "}
+        LogOut{" "}
+      </button>
     </section>
   );
 };
