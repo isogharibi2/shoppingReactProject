@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./home.scss";
 import axios from "axios";
-import { Navigate , Link } from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
+
+import { useLocalStorage } from "../hooks/useLocalStorage.js";
 
 const home = () => {
+  const [Fullname, SetFullname] = useLocalStorage("Token", "mohammadGharibi");
+
   const [Products, SetProducts] = useState([]);
 
   useEffect(() => {
@@ -37,9 +41,11 @@ const home = () => {
           </div>
         ))}
       </div>
-        <div className="ShowMorePds">
-          <button onClick={ShowMore}><Link to={"/ProDucts"}>Show More</Link></button>
-        </div>
+      <div className="ShowMorePds">
+        <button onClick={ShowMore}>
+          <Link to={"/ProDucts"}>Show More</Link>
+        </button>
+      </div>
     </section>
   );
 };
